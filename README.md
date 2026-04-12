@@ -1,5 +1,5 @@
 # propositional-logic-rewriting-algorithm
-B. Sc. Thesis - Automated Equivalence Transformations for Propositional and Predicate Logic - Rewrite-Based Derivation of Propositional Formulas
+B. Sc. Thesis - Automated Equivalence Transformations for Propositional Logic - Rewrite-Based Derivation of Propositional Formulas
 
 ## Contents
 - `core.h` – data structures and function prototypes
