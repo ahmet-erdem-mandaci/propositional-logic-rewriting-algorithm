@@ -1,17 +1,17 @@
 #include "core.h"
  
 Node* (*rules[])(Node*) = {
-    A1, A3, A3_Back, A4, A4_Back_1, A4_Back_2, A5, A6, A6_Back_1, A6_Back_2, A7, A8, A9, A9_Back, A10, A10_Backward,
-    B1, B3, B3_Back, B4, B4_Back, B5_Above, B5_Above_Back, B5_Below_1, B5_Below_2, B5_Below_Back_1, B5_Below_Back_2, B6, B7, B7_Back, B8, B8_Back, B9, B9_Back, B10, B10_Back, B11, B11_Back, B12, B12_Back, B13, B13_Back, B14, B14_Back,
-    C1, C3, C3_Back, C4, C4_Back, C5_Above, C5_Above_Back, C5_Below_1, C5_Below_2, C5_Below_Back_1, C5_Below_Back_2, C6, C7, C7_Back, C8, C8_Back, C9, C9_Back, C10, C10_Back, C11, C11_Back, C12, C12_Back, C13, C13_Back, C14, C14_Back,
+    A1, A2, A2_Back, A3, A3_Back, A4, A4_Back_1, A4_Back_2, A5, A6, A6_Back_1, A6_Back_2, A7, A8, A9, A9_Back, A10, A10_Backward,
+    B1, B2, B2_Back, B3, B3_Back, B4, B4_Back, B5_Above, B5_Above_Back, B5_Below_1, B5_Below_2, B5_Below_Back_1, B5_Below_Back_2, B6, B7, B7_Back, B8, B8_Back, B9, B9_Back, B10, B10_Back, B11, B11_Back, B12, B12_Back, B13, B13_Back, B14, B14_Back,
+    C1, C2, C2_Back, C3, C3_Back, C4, C4_Back, C5_Above, C5_Above_Back, C5_Below_1, C5_Below_2, C5_Below_Back_1, C5_Below_Back_2, C6, C7, C7_Back, C8, C8_Back, C9, C9_Back, C10, C10_Back, C11, C11_Back, C12, C12_Back, C13, C13_Back, C14, C14_Back,
     D1, D1_Back, D2, D2_Back, D3, D3_Back, D4, D5, D5_Left_Back, D5_Right_Back, D6, D6_Middle_Back, D6_Right_Back, D7, D7_Back, D8, D8_Back, D9_Above, D9_Below, D9_Below_Back, D10, D10_Back, D11, D11_Back, D12_1, D12_2, D12_1_Back, D12_2_Back, D13_1, D13_2, D13_1_Back, D13_2_Back, D14, D14_Back,
     E2, E4, E6, E9, E10, E11, E12, E13, E14, E15, E16, E17, E18, E19, E21
 };
  
 const char* rule_names[] = {
-    "A1", "A3", "A3", "A4", "A4", "A4", "A5", "A6", "A6", "A6", "A7", "A8", "A9", "A9", "A10", "A10", 
-    "B1", "B3", "B3", "B4", "B4", "B5", "B5", "B5", "B5", "B5", "B5", "B6", "B7", "B7", "B8", "B8", "B9", "B9", "B10", "B10", "B11", "B11", "B12", "B12", "B13", "B13", "B14", "B14",
-    "C1", "C3", "C3", "C4", "C4", "C5", "C5", "C5", "C5", "C5", "C5", "C6", "C7", "C7", "C8", "C8", "C9", "C9", "C10", "C10", "C11", "C11", "C12", "C12", "C13", "C13", "C14", "C14",
+    "A1", "A2", "A2", "A3", "A3", "A4", "A4", "A4", "A5", "A6", "A6", "A6", "A7", "A8", "A9", "A9", "A10", "A10", 
+    "B1", "B2", "B2", "B3", "B3", "B4", "B4", "B5", "B5", "B5", "B5", "B5", "B5", "B6", "B7", "B7", "B8", "B8", "B9", "B9", "B10", "B10", "B11", "B11", "B12", "B12", "B13", "B13", "B14", "B14",
+    "C1", "C2", "C2", "C3", "C3", "C4", "C4", "C5", "C5", "C5", "C5", "C5", "C5", "C6", "C7", "C7", "C8", "C8", "C9", "C9", "C10", "C10", "C11", "C11", "C12", "C12", "C13", "C13", "C14", "C14",
     "D1", "D1", "D2", "D2", "D3", "D3", "D4", "D5", "D5", "D5", "D6", "D6", "D6", "D7", "D7", "D8", "D8", "D9", "D9", "D9", "D10", "D10", "D11", "D11", "D12", "D12", "D12", "D12", "D13", "D13", "D13", "D13", "D14", "D14",
     "E2", "E4", "E6", "E9", "E10", "E11", "E12", "E13", "E14", "E15", "E16", "E17", "E18", "E19", "E21"
 };
@@ -161,4 +161,3 @@ double similarity(Node* a, Node* b) {
     if (size == 0) return 1.0;
     else return 1.0 - ((double)tree_diff_count(a, b) / size);
 }
-
