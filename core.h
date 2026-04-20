@@ -109,6 +109,8 @@ void print_truth_table(Node* start, Node* end);
 
 //Rewriting/Equivalence Rules Functions
 Node* A1(Node* node);
+Node* A2(Node* node);
+Node* A2_Back(Node* node);
 Node* A3(Node* node);
 Node* A3_Back(Node* node);
 Node* A4(Node* node);
@@ -125,6 +127,8 @@ Node* A9_Back(Node* node);
 Node* A10(Node* node);
 Node* A10_Backward(Node* node);
 Node* B1(Node* node);
+Node* B2(Node* node);
+Node* B2_Back(Node* node);
 Node* B3(Node* node);
 Node* B3_Back(Node* node);
 Node* B4(Node* node);
@@ -153,6 +157,8 @@ Node* B13_Back(Node* node);
 Node* B14(Node* node);
 Node* B14_Back(Node* node);
 Node* C1(Node* node);
+Node* C2(Node* node);
+Node* C2_Back(Node* node);
 Node* C3(Node* node);
 Node* C3_Back(Node* node);
 Node* C4(Node* node);
