@@ -15,6 +15,46 @@ Node* A1(Node* node) {
     return NULL;
 }
 
+Node* A2(Node* node) {
+    if((node->Nodetype.type == TOK_AND || node->Nodetype.type == TOK_OR) &&
+       node->left->Nodetype.type == node->Nodetype.type)
+    {
+        Node* new = calloc(1, sizeof(Node));
+        new->Nodetype.type = node->Nodetype.type;
+
+        new->left = copy_tree(node->left->left);
+
+        new->right = calloc(1, sizeof(Node));
+        new->right->Nodetype.type = node->Nodetype.type;
+        new->right->left = copy_tree(node->left->right);
+        new->right->right = copy_tree(node->right);
+
+        return new;
+    }
+
+    return NULL;
+}
+
+Node* A2_Back(Node* node) {
+    if((node->Nodetype.type == TOK_AND || node->Nodetype.type == TOK_OR) &&
+       node->right->Nodetype.type == node->Nodetype.type)
+    {
+        Node* new = calloc(1, sizeof(Node));
+        new->Nodetype.type = node->Nodetype.type;
+
+        new->left = calloc(1, sizeof(Node));
+        new->left->Nodetype.type = node->Nodetype.type;
+        new->left->left = copy_tree(node->left);
+        new->left->right = copy_tree(node->right->left);
+
+        new->right = copy_tree(node->right->right);
+
+        return new;
+    }
+
+    return NULL;
+}
+
 Node* A3(Node* node) {
     if(node->Nodetype.type == TOK_AND && node->right->Nodetype.type == TOK_OR) {
         Node* new = calloc(1, sizeof(Node));
@@ -265,6 +305,46 @@ Node* B1(Node* node) {
         new->left = copy_tree(node->right);
         return new;
     }
+    return NULL;
+}
+
+Node* B2(Node* node) {
+    if(node->Nodetype.type == TOK_XOR &&
+        node->left->Nodetype.type == TOK_XOR)
+    {
+        Node* new = calloc(1, sizeof(Node));
+        new->Nodetype.type = node->Nodetype.type;
+
+        new->left = copy_tree(node->left->left);
+
+        new->right = calloc(1, sizeof(Node));
+        new->right->Nodetype.type = node->Nodetype.type;
+        new->right->left = copy_tree(node->left->right);
+        new->right->right = copy_tree(node->right);
+
+        return new;
+    }
+
+    return NULL;
+}
+
+Node* B2_Back(Node* node) {
+    if(node->Nodetype.type == TOK_XOR &&
+        node->right->Nodetype.type == TOK_XOR)
+    {
+        Node* new = calloc(1, sizeof(Node));
+        new->Nodetype.type = node->Nodetype.type;
+
+        new->left = calloc(1, sizeof(Node));
+        new->left->Nodetype.type = node->Nodetype.type;
+        new->left->left = copy_tree(node->left);
+        new->left->right = copy_tree(node->right->left);
+
+        new->right = copy_tree(node->right->right);
+
+        return new;
+    }
+
     return NULL;
 }
 
@@ -714,6 +794,46 @@ Node* C1(Node* node) {
         new->left = copy_tree(node->right);
         return new;
     }
+    return NULL;
+}
+
+Node* C2(Node* node) {
+    if(node->Nodetype.type == TOK_BICOND &&
+        node->left->Nodetype.type == TOK_BICOND)
+    {
+        Node* new = calloc(1, sizeof(Node));
+        new->Nodetype.type = node->Nodetype.type;
+
+        new->left = copy_tree(node->left->left);
+
+        new->right = calloc(1, sizeof(Node));
+        new->right->Nodetype.type = node->Nodetype.type;
+        new->right->left = copy_tree(node->left->right);
+        new->right->right = copy_tree(node->right);
+
+        return new;
+    }
+
+    return NULL;
+}
+
+Node* C2_Back(Node* node) {
+    if(node->Nodetype.type == TOK_BICOND &&
+        node->right->Nodetype.type == TOK_BICOND)
+    {
+        Node* new = calloc(1, sizeof(Node));
+        new->Nodetype.type = node->Nodetype.type;
+
+        new->left = calloc(1, sizeof(Node));
+        new->left->Nodetype.type = node->Nodetype.type;
+        new->left->left = copy_tree(node->left);
+        new->left->right = copy_tree(node->right->left);
+
+        new->right = copy_tree(node->right->right);
+
+        return new;
+    }
+
     return NULL;
 }
 
