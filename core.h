@@ -77,9 +77,9 @@ Node* get_Node(Token* tokens, int start, int end);
 #define NUM_KEYS 10000003
 #define FNV_OFFSET_BASIS 0xcbf29ce484222325
 #define FNV_PRIME 0x00000100000001b3
-#define GEN_LIMIT 40
-#define BEAM_WIDTH 1000
-#define MAX_SIZE 35
+#define GEN_LIMIT 50
+#define BEAM_WIDTH 3000
+#define MAX_SIZE 20
 #define MAX_GROWTH 10
 unsigned long long tree_hash(Node* node);
 void clear_hash_table();
